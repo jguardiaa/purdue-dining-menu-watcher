@@ -1,0 +1,4 @@
+# one favorite per line, edit me - examples:
+# chicken tenders
+# orange chicken
+# pizza

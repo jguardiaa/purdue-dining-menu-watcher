@@ -27,3 +27,22 @@ Flowchart built in Lucidchart. The program starts at the green **START** node, a
 3. For each court, fetch today's menu and match its items against favorites (loop until all courts are done).
 4. Save all of today's menus as a dated snapshot.
 5. Print every match, or "No favorites today", then exit.
+
+## Tech stack
+- Language: Bash
+- Commands: curl (hit the dining API), jq (parse the JSON), grep (favorites matching), date (timestamps), cron (daily runs, post-MVP)
+- Data storage: favorites in a plain text file, daily menu snapshots saved as JSON files
+- Data source: Purdue's public dining menus API (free, no key): https://api.hfs.purdue.edu/menus/v2/locations and /menus/v2/locations/{court}/{date}
+
+## Chunked build plan
+1. Set up the Git repo, folder structure, and favorites.txt
+2. Curl the dining API and save the raw JSON response to a file
+3. Parse the JSON with jq and list everything being served today
+4. Match today's items against favorites.txt and print the matches
+5. Add the dining court and meal period to each match in the output
+6. Save a timestamped snapshot of each day's menus
+7. Print a clean daily summary (matches, or "no favorites today")
+8. Add error handling for API down / bad JSON / empty menu
+
+## Repository
+Public GitHub repo: https://github.com/jguardiaa/purdue-dining-menu-watcher
